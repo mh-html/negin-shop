@@ -42,13 +42,13 @@ function Basket({ user }) {
     <div className="container mx-auto min-h-screen flex flex-col-reverse md:flex-row justify-between mt-4 py-2 gap-4 px-4 lg:px-48">
       <div className="border-2 border-tl dark:border-td rounded-md h-fit w-full md:w-1/3 p-4">
         <p className="font-semibold text-tl dark:text-td mb-4">
-          Total : $ {state.totalAll.toFixed(2)}
+          هزینه کل :  {state.totalAll.toFixed(2)} تومان
         </p>
         <p className="text-xl text-tl dark:text-td">
-          Quantity : {state.quantityAll}
+          تعداد : {state.quantityAll}
         </p>
-        <p className="text-xl text-tl dark:text-td">Status : Pending... </p>
-        {user && state.basketCart.length && (
+        <p className="text-xl dark:text-td">وضعیت :‌ درحال خرید...</p>
+        {user && !!state.basketCart.length && (
           <button
             className="mt-8 p-4 bg-green-700 text-white rounded w-full"
             onClick={saveProducts}
@@ -61,7 +61,7 @@ function Basket({ user }) {
             <Link to="/products">انتخاب محصول</Link>
           </button>
         )}
-        {!user && <button className="mt-8 p-4 bg-blue-700 text-white rounded w-full">
+        {!user && <button className="mt-8 p-4 bg-emerald-700 text-white rounded w-full">
             <Link to="/login">ابتدا وارد شوید</Link>
           </button>}
       </div>
@@ -71,7 +71,7 @@ function Basket({ user }) {
         ))}
         {!state.basketCart.length && (
           <p className="text-xl font-semibold text-bd dark:text-bl">
-            Empity...
+            سبد خرید خالی است
           </p>
         )}
       </div>

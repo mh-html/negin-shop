@@ -14,12 +14,12 @@ function CartBascket({ product }) {
       </div>
       <div className="text-tl dark:text-td text-base lg:text-xl">
         <h2 className="font-bold">{title}</h2>
-        <p className="font-semibold">$ {price}</p>
+        <p className="font-semibold">{price } تومان</p>
       </div>
       <div className="text-tl dark:text-td flex">
         {quantity === 1 ? (
           <button
-            className="p-2 text-lg text-white rounded bg-blue-600"
+            className="p-2 text-lg text-white rounded bg-emerald-600"
             onClick={() => {
               dispatch({ type: "REMOVE_ITEM", payload: product });
             }}
@@ -28,7 +28,7 @@ function CartBascket({ product }) {
           </button>
         ) : (
           <button
-            className="p-2 text-lg text-white rounded bg-blue-600"
+            className="p-2 text-lg text-white rounded bg-emerald-600"
             onClick={() => dispatch({ type: "DECREASE", payload: product })}
           >
             <TbShoppingBagMinus />
@@ -37,7 +37,7 @@ function CartBascket({ product }) {
 
         <span className="mx-2 font-bold text-bd dark:text-bl">{quantity}</span>
         <button
-          className="p-2 text-lg text-white rounded bg-blue-600"
+          className="p-2 text-lg text-white rounded bg-emerald-600"
           onClick={() => dispatch({ type: "INCREASE", payload: product })}
         >
           <TbShoppingBagPlus />

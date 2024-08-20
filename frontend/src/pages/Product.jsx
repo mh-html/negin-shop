@@ -33,7 +33,7 @@ function Product() {
             <>
               {inBascket.quantity === 1 ? (
                 <button
-                  className="p-2 text-lg text-white rounded bg-blue-600"
+                  className="p-2 text-lg text-white rounded bg-emerald-600"
                   onClick={() => {
                     dispatch({ type: "REMOVE_ITEM", payload: product });
                   }}
@@ -42,7 +42,7 @@ function Product() {
                 </button>
               ) : (
                 <button
-                  className="p-2 text-lg text-white rounded bg-blue-600"
+                  className="p-2 text-lg text-white rounded bg-emerald-600"
                   onClick={() =>
                     dispatch({ type: "DECREASE", payload: product })
                   }
@@ -58,7 +58,7 @@ function Product() {
           )}
           {!inBascket ? (
             <button
-              className="p-2 text-lg text-white rounded bg-blue-600"
+              className="p-2 text-lg text-white rounded bg-emerald-600"
               onClick={() => {
                 dispatch({ type: "ADD_ITEM", payload: product });
               }}
@@ -67,7 +67,7 @@ function Product() {
             </button>
           ) : (
             <button
-              className="p-2 text-lg text-white rounded bg-blue-600"
+              className="p-2 text-lg text-white rounded bg-emerald-600"
               onClick={() => dispatch({ type: "INCREASE", payload: product })}
             >
               <TbShoppingBagPlus />

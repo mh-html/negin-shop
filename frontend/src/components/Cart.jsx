@@ -19,7 +19,7 @@ function Cart({ product }) {
         <h5 className="text-lg mt-2">{price} تومان</h5>
       </div>
       <div className="flex justify-between items-start p-4">
-        <button className="px-8 py-1 text-lg text-white rounded bg-blue-600">
+        <button className="px-8 py-1 text-lg text-white rounded bg-emerald-600">
           <Link to={`/products/${id}`}>جزئیات</Link>
         </button>
 
@@ -27,7 +27,7 @@ function Cart({ product }) {
           <>
             {inBascket.quantity === 1 ? (
               <button
-                className="p-2 text-lg text-white rounded bg-blue-600"
+                className="p-2 text-lg text-white rounded bg-emerald-600"
                 onClick={() => {
                   dispatch({ type: "REMOVE_ITEM", payload: product });
                 }}
@@ -36,7 +36,7 @@ function Cart({ product }) {
               </button>
             ) : (
               <button
-                className="p-2 text-lg text-white rounded bg-blue-600"
+                className="p-2 text-lg text-white rounded bg-emerald-600"
                 onClick={() => dispatch({ type: "DECREASE", payload: product })}
               >
                 <TbShoppingBagMinus />
@@ -50,7 +50,7 @@ function Cart({ product }) {
         )}
         {!inBascket ? (
           <button
-            className="p-2 text-lg text-white rounded bg-blue-600"
+            className="p-2 text-lg text-white rounded bg-emerald-600"
             onClick={() => {
               dispatch({ type: "ADD_ITEM", payload: product });
             }}
@@ -59,7 +59,7 @@ function Cart({ product }) {
           </button>
         ) : (
           <button
-            className="p-2 text-lg text-white rounded bg-blue-600"
+            className="p-2 text-lg text-white rounded bg-emerald-600"
             onClick={() => dispatch({ type: "INCREASE", payload: product })}
           >
             <TbShoppingBagPlus />

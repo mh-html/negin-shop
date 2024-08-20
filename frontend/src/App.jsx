@@ -27,7 +27,7 @@ function App() {
           setUser(data);
         })
         .catch((err) => {
-          console.error(err);
+          console.err(err.message);
         });
     }
   }, []);

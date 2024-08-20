@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="w-full p-8 bg-blue-600 text-white flex justify-around items-center gap-4">
+    <footer className="w-full p-8 bg-emerald-600 text-white flex justify-around items-center gap-4">
       <div>
         <h3 className="text-xl font-bold mb-4 border-b-2">فروشگاه</h3>
         <ul>

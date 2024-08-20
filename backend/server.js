@@ -145,6 +145,30 @@ app.post("/purchase", (req, res) => {
   res.status(200).json({ message: "ذخیره در دیتابیس موفقیت‌آمیز بود." });
 });
 
+app.post("/getPurchasedProducts", (req, res) => {
+  const userId = req.body.userId;
+
+  if (!userId) {
+    return res.status(400).json({ error: "ایدی کاربر الزامیست" });
+  }
+
+  const query = `
+      SELECT p.id, p.title, p.description, p.price, p.category, p.image, p.raiting, up.quantity
+      FROM user_products up
+      JOIN products p ON up.product_id = p.id
+      WHERE up.user_id = ?
+  `;
+
+  connection.query(query, [userId], (err, results) => {
+    if (err) {
+      console.error("خطای پایگاه داده:", err);
+      return res.status(500).json({ error: "خطای دریافت محصولات" });
+    }
+
+    res.status(200).json({ products: results });
+  });
+});
+
 app.listen(8081, () => {
   console.log("Connect to server...");
 });

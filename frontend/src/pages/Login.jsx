@@ -32,8 +32,8 @@ function Login() {
   };
   return (
     <div className="container mx-auto">
-      <div className="w-[600px] mx-auto p-4 border-2 border-blue-600 rounded mt-24 text-center">
-        <h1 className="my-8 text-3xl font-semibold text-blue-600">پنل ورود</h1>
+      <div className="w-[600px] mx-auto p-4 border-2 border-emerald-600 rounded mt-24 text-center">
+        <h1 className="my-8 text-3xl font-semibold text-emerald-600">پنل ورود</h1>
         <form onSubmit={loginHandler} className="text-xl">
           <input
             type="text"
@@ -60,13 +60,13 @@ function Login() {
           <div className="mt-8 flex justify-between items-center gap-4">
             <button
               type="submit"
-              className="w-full p-2 rounded bg-blue-600 text-white mt-4"
+              className="w-full p-2 rounded bg-emerald-600 text-white mt-4"
             >
               ورود
             </button>
             <Link
               to="/register"
-              className="w-full p-2 rounded bg-blue-600 text-white mt-4"
+              className="w-full p-2 rounded bg-emerald-600 text-white mt-4"
             >
               حساب کاربری ندارید؟
             </Link>

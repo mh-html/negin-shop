@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+ import { Link } from "react-router-dom";
 
 function Categories() {
   return (
@@ -11,13 +11,13 @@ function Categories() {
           </button>
         </div>
         <div className="flex justify-between items-center mt-8">
-          <div className="w-[300px] overflow-hidden rounded">
+          <div className="w-[300px] overflow-hidden rounded shadow-lg">
             <img src="index/men.jpg" alt="کفش مرد" />
           </div>
-          <div className="w-[300px] overflow-hidden rounded">
+          <div className="w-[300px] overflow-hidden rounded shadow-lg">
             <img src="index/women.jpg" alt="کفش زن" />
           </div>
-          <div className="w-[300px] overflow-hidden rounded">
+          <div className="w-[300px] overflow-hidden rounded shadow-lg">
             <img src="index/kids.jpg" alt="کفش بچه" />
           </div>
         </div>

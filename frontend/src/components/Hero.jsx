@@ -10,7 +10,7 @@ function Hero() {
         <p className="mt-4 font-bold text-3xl">
           سایت ما را به دوستان خود معرفی کنید
         </p>
-        <button className="p-4 bg-white text-black rounded mt-8">
+        <button className="p-4 bg-emerald-600 text-white rounded mt-8">
           <Link to="/products">دیدن محصولات</Link>
         </button>
       </div>

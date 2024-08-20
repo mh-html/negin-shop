@@ -32,8 +32,8 @@ function Register() {
   };
   return (
     <div className="container mx-auto">
-      <div className="w-[600px] mx-auto p-4 border-2 border-blue-600 rounded mt-24 text-center">
-        <h1 className="my-8 text-3xl font-semibold text-blue-600">
+      <div className="w-[600px] mx-auto p-4 border-2 border-emerald-600 rounded mt-24 text-center">
+        <h1 className="my-8 text-3xl font-semibold text-emerald-600">
           پنل ثبت نام
         </h1>
         <form onSubmit={registerHandler} className="text-xl">
@@ -78,13 +78,13 @@ function Register() {
           <div className="mt-8 flex justify-between items-center gap-4">
             <button
               type="submit"
-              className="w-full p-2 rounded bg-blue-600 text-white mt-4"
+              className="w-full p-2 rounded bg-emerald-600 text-white mt-4"
             >
               ثبت نام
             </button>
             <Link
               to="/login"
-              className="w-full p-2 rounded bg-blue-600 text-white mt-4"
+              className="w-full p-2 rounded bg-emerald-600 text-white mt-4"
             >
               حساب کاربری دارید؟
             </Link>
