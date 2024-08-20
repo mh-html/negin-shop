@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "byekan";
+  font-style: normal;
+  src: url("./fonts/BYekan/BYekan+.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "vazir";
+  font-style: normal;
+  font-style: bold;
+  src: url("./fonts/vazir/Vazir.ttf") format("truetype"),
+    url("./fonts/vazir/Vazir-Bold.ttf") format("truetype");
+}
+
+html {
+  direction: rtl;
+  font-family: "vazir", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+}
