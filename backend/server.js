@@ -22,7 +22,7 @@ app.get("/api/products", (req, res) => {
   const sql = "SELECT * FROM products";
   connection.query(sql, (err, result) => {
     if (err)
-      return res.status(404).json({ message: `خطایی رخ داده است : ${err}` });
+      return res.status(404).json({ message: `خطایی رخ داده است : ${err}`, status:404 });
     return res.json(result);
   });
 });
@@ -35,7 +35,7 @@ app.get("/api/products/:id", (req, res) => {
     if (result.length === 0) {
       return res
         .status(404)
-        .json({ message: `محصول با شناسه ${id} یافت نشد.` });
+        .json({ message: `محصول با شناسه ${id} یافت نشد.`, status: 404 });
     }
     return res.json(result[0]);
   });
