@@ -8,7 +8,6 @@ import { notifErr, notifSuc } from "../utils/notif";
 function Basket({ user }) {
   const navigate = useNavigate();
   const { state } = useContext(BascketCartContextProvider);
-  console.log(state.basketCart);
   calculatorTotal(state);
   function saveProducts() {
     const productsInCart = JSON.parse(localStorage.getItem("basketCart"));

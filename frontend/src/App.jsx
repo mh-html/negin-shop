@@ -11,25 +11,17 @@ import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
 import Account from "./pages/Account";
 import { ToastContainer } from "react-toastify";
+import { getUser } from "./utils/getUser";
 
 function App() {
   const [user, setUser] = useState(null);
+
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      fetch("http://localhost:8081/getuser", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setUser(data);
-        })
-        .catch((err) => {
-          console.err(err.message);
-        });
-    }
+    const userHandler = async () => {
+      const userData = await getUser();
+      setUser(userData);
+    };
+    userHandler();
   }, []);
   return (
     <>
@@ -42,7 +34,7 @@ function App() {
           <Route path="/basket" element={<Basket user={user} />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/account" element={<Account user={user} />} />
+          <Route path="/account" element={<Account />} />
         </Routes>
         <Footer />
         <ToastContainer />
