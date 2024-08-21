@@ -42,17 +42,17 @@ function Account() {
   return (
     <div className="min-h-screen container mx-auto px-20 shadow">
       <div className="mt-8 p-8 rounded shadow-md">
-        <h6 className="text-center text-3xl font-bold mb-8">
+        <h6 className="text-center text-3xl font-bold mb-8 border-b-2 border-emerald-600 pb-2">
           جزئیات حساب کاربری
         </h6>
         <p className="text-xl">
-          نام :‌ <span>{user?.name}</span>
+          نام :‌ <span className="text-emerald-600">{user?.name}</span>
         </p>
         <p className="text-xl my-4">
-          نام کاربری :‌ <span>{user?.username}</span>
+          نام کاربری :‌ <span className="text-emerald-600">{user?.username}</span>
         </p>
         <p className="text-xl">
-          ایمیل :‌ <span>{user?.email}</span>
+          ایمیل :‌ <span className="text-emerald-600">{user?.email}</span>
         </p>
         <div className="mt-8">
           <p className="text-center font-semibold text-xl my-4">
@@ -67,7 +67,7 @@ function Account() {
                 <th>قیمت</th>
                 <th>دسته بندی</th>
                 <th>عکس</th>
-                <th>رتبه</th>
+                <th>امتیاز</th>
                 <th>تعداد</th>
               </tr>
             </thead>
@@ -83,7 +83,7 @@ function Account() {
                     <img
                       src={product?.image}
                       alt={product?.title}
-                      className="w-16 h-16 rounded-md object-cover"
+                      className="size-16 rounded-md object-cover"
                     />
                   </td>
                   <td className="py-3 px-4">

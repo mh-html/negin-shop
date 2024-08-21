@@ -1,12 +1,11 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { BascketCartContextProvider } from "../contexts/BasketContext";
-import CartBascket from "../components/CartBascket";
+import { CartBascket } from "../components";
 import { calculatorTotal } from "../utils/calcProduct";
-import { Link, useNavigate } from "react-router-dom";
 import { notifErr, notifSuc } from "../utils/notif";
 
 function Basket({ user }) {
-  const navigate = useNavigate();
   const { state } = useContext(BascketCartContextProvider);
   calculatorTotal(state);
   function saveProducts() {
@@ -34,14 +33,14 @@ function Basket({ user }) {
       })
       .catch((error) => {
         console.error("Error:", error);
-        notifErr(error.message)
+        notifErr(error.message);
       });
   }
   return (
     <div className="container mx-auto min-h-screen flex flex-col-reverse md:flex-row justify-between mt-4 py-2 gap-4 px-4 lg:px-48">
       <div className="border-2 border-tl dark:border-td rounded-md h-fit w-full md:w-1/3 p-4">
         <p className="font-semibold text-tl dark:text-td mb-4">
-          هزینه کل :  {state.totalAll.toFixed(2)} تومان
+          هزینه کل : {state.totalAll.toFixed(2)} تومان
         </p>
         <p className="text-xl text-tl dark:text-td">
           تعداد : {state.quantityAll}
@@ -60,9 +59,11 @@ function Basket({ user }) {
             <Link to="/products">انتخاب محصول</Link>
           </button>
         )}
-        {!user && <button className="mt-8 p-4 bg-emerald-700 text-white rounded w-full">
+        {!user && (
+          <button className="mt-8 p-4 bg-emerald-700 text-white rounded w-full">
             <Link to="/login">ابتدا وارد شوید</Link>
-          </button>}
+          </button>
+        )}
       </div>
       <div className="w-full md:w-2/3">
         {state.basketCart.map((product) => (

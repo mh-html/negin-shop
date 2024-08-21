@@ -7,55 +7,99 @@ function Login() {
     username: "",
     password: "",
   });
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+
+  const validate = () => {
+    let tempErrors = {};
+    let isValid = true;
+
+    if (!dataUserLogin.username) {
+      tempErrors["username"] = "نام کاربری لازم است";
+      isValid = false;
+    }
+
+    if (!dataUserLogin.password) {
+      tempErrors["password"] = "رمز عبور لازم است";
+      isValid = false;
+    } else if (dataUserLogin.password.length < 6) {
+      tempErrors["password"] = "رمز عبور باید حداقل 6 کاراکتر باشد";
+      isValid = false;
+    }
+
+    setErrors(tempErrors);
+    return isValid;
+  };
+
   const loginHandler = (e) => {
     e.preventDefault();
-    fetch("http://localhost:8081/login", {
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-      body: JSON.stringify(dataUserLogin),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status !== 200) {
-          notifErr(data.message);
-        } else {
-          localStorage.setItem("token", data.token);
-          navigate("/");
-          notifSuc(data.message);
-          window.location.reload();
-        }
+    if (validate()) {
+      fetch("http://localhost:8081/login", {
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        body: JSON.stringify(dataUserLogin),
       })
-      .catch((err) => {
-        console.error(err);
-      });
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.status !== 200) {
+            notifErr(data.message);
+          } else {
+            localStorage.setItem("token", data.token);
+            notifSuc(data.message);
+            navigate("/");
+            window.location.reload();
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
   };
+
   return (
     <div className="container mx-auto">
-      <div className="w-[600px] mx-auto p-4 border-2 border-emerald-600 rounded mt-24 text-center">
-        <h1 className="my-8 text-3xl font-semibold text-emerald-600">پنل ورود</h1>
+      <div className="w-[600px] mx-auto p-4 border-2 border-emerald-600 rounded my-16 text-center">
+        <h1 className="my-8 text-3xl font-semibold text-emerald-600">
+          پنل ورود
+        </h1>
         <form onSubmit={loginHandler} className="text-xl">
-          <input
-            type="text"
-            className="w-full p-2 border-2 rounded"
-            id="text"
-            name="text"
-            placeholder="نام کاربری"
-            onChange={(e) =>
-              setDataUserLogin({ ...dataUserLogin, username: e.target.value })
-            }
-          />
+          <div className="mb-4">
+            <input
+              type="text"
+              className={`w-full p-2 border-2 rounded ${
+                errors.username ? "border-red-500" : ""
+              }`}
+              id="text"
+              name="text"
+              placeholder="نام کاربری"
+              value={dataUserLogin.username}
+              onChange={(e) =>
+                setDataUserLogin({ ...dataUserLogin, username: e.target.value })
+              }
+            />
+            {errors.username && (
+              <span className="text-red-500 text-sm">{errors.username}</span>
+            )}
+          </div>
 
-          <input
-            type="password"
-            className="w-full p-2 border-2 rounded mt-4"
-            id="password"
-            name="password"
-            placeholder="رمز عبور"
-            onChange={(e) =>
-              setDataUserLogin({ ...dataUserLogin, password: e.target.value })
-            }
-          />
+          <div className="mb-4">
+            <input
+              type="password"
+              className={`w-full p-2 border-2 rounded ${
+                errors.password ? "border-red-500" : ""
+              }`}
+              id="password"
+              name="password"
+              placeholder="رمز عبور"
+              value={dataUserLogin.password}
+              onChange={(e) =>
+                setDataUserLogin({ ...dataUserLogin, password: e.target.value })
+              }
+            />
+            {errors.password && (
+              <span className="text-red-500 text-sm">{errors.password}</span>
+            )}
+          </div>
 
           <div className="mt-8 flex justify-between items-center gap-4">
             <button

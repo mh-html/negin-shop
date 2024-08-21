@@ -1,7 +1,4 @@
-import Hero from "../components/Hero";
-import AboutUs from "../components/AboutUs";
-import Categories from "../components/Categories";
-
+import { Hero, AboutUs, Categories } from "../components";
 function Home() {
   return (
     <div className="bg-gray-300">

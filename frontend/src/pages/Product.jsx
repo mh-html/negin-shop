@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { MdAddShoppingCart, MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { TbShoppingBagMinus, TbShoppingBagPlus } from "react-icons/tb";
-import { useParams } from "react-router-dom";
 import { BascketCartContextProvider } from "../contexts/BasketContext";
 
 function Product() {

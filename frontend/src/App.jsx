@@ -1,16 +1,9 @@
-import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Products from "./pages/Products";
-import Header from "./components/Header";
-import Login from "./pages/Login";
-import Product from "./pages/Product";
-import Register from "./pages/Register";
-import Basket from "./pages/Basket";
-import BasketContextProvider from "./contexts/BasketContext";
-import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
-import Account from "./pages/Account";
+import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { Home, Products, Login, Product, Register, Basket, Account } from './pages';
+import BasketContextProvider from "./contexts/BasketContext";
+import {Header , Footer} from "./components";
 import { getUser } from "./utils/getUser";
 
 function App() {
@@ -32,7 +25,7 @@ function App() {
           <Route path="/products/:id" element={<Product />} />
           <Route path="/products" element={<Products />} />
           <Route path="/basket" element={<Basket user={user} />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/account" element={<Account />} />
         </Routes>
