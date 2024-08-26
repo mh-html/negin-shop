@@ -40,7 +40,7 @@ function Basket({ user }) {
     <div className="container mx-auto min-h-screen flex flex-col-reverse md:flex-row justify-between mt-4 py-2 gap-4 px-4 lg:px-48">
       <div className="border-2 border-tl dark:border-td rounded-md h-fit w-full md:w-1/3 p-4">
         <p className="font-semibold text-tl dark:text-td mb-4">
-          هزینه کل : {state.totalAll.toFixed(2)} تومان
+          هزینه کل : {new Intl.NumberFormat('fa-IR').format(state.totalAll)} تومان
         </p>
         <p className="text-xl text-tl dark:text-td">
           تعداد : {state.quantityAll}

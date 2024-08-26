@@ -19,16 +19,16 @@ function Product() {
   }, []);
 
   return (
-    <div className="container mx-auto mt-4 p-4 flex justify-between items-center gap-8">
+    <div className="container mx-auto m-4 p-8 flex justify-between items-center gap-8 rounded shadow">
       <div className="flex-1">
-        <h1 className="text-6xl font-bold">{product.title}</h1>
+        <h1 className="text-5xl font-bold">{product.title}</h1>
         <p className="text-3xl font-semibold mt-8">{product.description}</p>
         <div className="flex justify-between items-center mt-12">
-          <p className="text-2xl">{product.price} تومان</p>
+          <p className="text-2xl text-emerald-600">{new Intl.NumberFormat('fa-IR').format(product.price)} تومان</p>
           <p className="text-xl"> امتیاز: {product.raiting}</p>
         </div>
-        <p className="text-3xl font-semibold">دسته بندی:‌ {product.category}</p>
-        <div className="mt-8">
+        <p className="text-xl font-semibold">دسته بندی:‌ {product.category}</p>
+        <div className="mt-8 text-center">
           {!!inBascket && (
             <>
               {inBascket.quantity === 1 ? (
@@ -51,7 +51,7 @@ function Product() {
                 </button>
               )}
 
-              <span className="mx-2 font-bold text-[14px] dark:text-white">
+              <span className="mx-8 font-bold text-2xl">
                 {inBascket.quantity}
               </span>
             </>
@@ -75,8 +75,8 @@ function Product() {
           )}
         </div>
       </div>
-      <div>
-        <img src={product.image} alt={product.title} />
+      <div className="overflow-hidden rounded">
+        <img src={product.image} alt={product.title} className="size-full object-cover" />
       </div>
     </div>
   );

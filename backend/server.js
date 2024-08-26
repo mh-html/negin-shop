@@ -22,7 +22,9 @@ app.get("/api/products", (req, res) => {
   const sql = "SELECT * FROM products";
   connection.query(sql, (err, result) => {
     if (err)
-      return res.status(404).json({ message: `خطایی رخ داده است : ${err}`, status:404 });
+      return res
+        .status(404)
+        .json({ message: `خطایی رخ داده است : ${err}`, status: 404 });
     return res.json(result);
   });
 });

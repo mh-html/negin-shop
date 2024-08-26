@@ -16,7 +16,7 @@ function Cart({ product }) {
       </div>
       <div className="m-2 p-2">
         <h4 className="text-xl font-bold">{title}</h4>
-        <h5 className="text-lg mt-2">{price} تومان</h5>
+        <h5 className="text-lg mt-2">{new Intl.NumberFormat('fa-IR').format(price)} تومان</h5>
       </div>
       <div className="flex justify-between items-start p-4">
         <button className="px-8 py-1 text-lg text-white rounded bg-emerald-600">
@@ -43,7 +43,7 @@ function Cart({ product }) {
               </button>
             )}
 
-            <span className="font-bold text-xl dark:text-white">
+            <span className="font-bold text-xl text-emerald-600">
               {inBascket.quantity}
             </span>
           </>

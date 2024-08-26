@@ -1,5 +1,6 @@
 export const getUser = async () => {
   const token = localStorage.getItem("token");
+  
   if (token) {
     try {
       const response = await fetch("http://localhost:8081/getuser", {

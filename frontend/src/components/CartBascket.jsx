@@ -14,7 +14,7 @@ function CartBascket({ product }) {
       </div>
       <div className="text-tl dark:text-td text-base lg:text-xl">
         <h2 className="font-bold">{title}</h2>
-        <p className="font-semibold">{price } تومان</p>
+        <p className="font-semibold">{new Intl.NumberFormat('fa-IR').format(price)} تومان</p>
       </div>
       <div className="text-tl dark:text-td flex">
         {quantity === 1 ? (

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getUser } from "../utils/getUser";
 
 function Account() {
@@ -95,8 +95,9 @@ function Account() {
             </tbody>
           </table>
         </div>
+            {!buyProducts.length && <button className="w-full p-2 bg-emerald-600">هیچ محصولی در فروشگاه نیست !<Link to="/products" className="underline">رفتن به فروشگاه</Link> </button>}
         <button
-          className="mt-8 w-full p-2 rounded bg-red-500 text-white text-xl font-semibold"
+          className="mt-12 w-full p-2 rounded bg-red-500 text-white text-xl font-semibold"
           onClick={handleLogout}
         >
           خارج شدن
